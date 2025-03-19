@@ -1,4 +1,3 @@
-"use client";
 import { useState } from "react";
 import {
   motion,
@@ -21,21 +20,27 @@ export const FloatingNav = ({
 }) => {
   const { scrollYProgress } = useScroll();
 
+  // Estado para controlar la visibilidad
   const [visible, setVisible] = useState(false);
+  // Estado para saber si ya hemos scrolleado hacia abajo
+  const [scrolled, setScrolled] = useState(false);
 
   useMotionValueEvent(scrollYProgress, "change", (current) => {
-    // Check if current is not undefined and is a number
     if (typeof current === "number") {
       const previous = scrollYProgress.getPrevious();
       const direction = previous !== undefined ? current - previous : 0;
 
+      // Si el scroll está por debajo de un umbral, marcar como scrolleado
       if (scrollYProgress.get() < 0.05) {
-        setVisible(false);
-      } else {
-        if (direction < 0) {
-          setVisible(true);
-        } else {
+        // Si estamos en el top, podemos ocultarlo si no hemos scrolleado antes
+        if (!scrolled) {
           setVisible(false);
+        }
+      } else {
+        if (direction < 0 && !scrolled) {
+          // Si hemos scrolleado hacia abajo por primera vez
+          setVisible(true);
+          setScrolled(true); // Marca que ya hemos scrolleado
         }
       }
     }
@@ -56,7 +61,7 @@ export const FloatingNav = ({
           duration: 0.2,
         }}
         className={cn(
-          "flex max-w-fit fixed top-3 inset-x-0 mx-auto border border-transparent dark:border-white/[0.2] rounded-full dark:bg-black bg-white px-4 py-2  items-center justify-center space-x-4",
+          "flex max-w-fit fixed top-3 inset-x-0 mx-auto border border-white/[0.2] rounded-full bg-transparent backdrop-grayscale px-4 py-2.5 items-center justify-center space-x-4 z-50",
           className
         )}
       >
@@ -65,10 +70,10 @@ export const FloatingNav = ({
             key={navItem.name}
             to={navItem.link}
             className={cn(
-              "relative dark:text-neutral-50 items-center flex space-x-1 text-neutral-600 dark:hover:text-neutral-300 hover:text-neutral-500"
+              "relative text-neutral-50 items-center flex space-x-1 hover:text-neutral-300 "
             )}
           >
-            <span className="hidden sm:block text-sm">{navItem.name}</span>
+            <span className="block text-md font-semibold">{navItem.name}</span>
           </Link>
         ))}
       </motion.div>
