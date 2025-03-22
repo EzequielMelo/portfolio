@@ -13,7 +13,7 @@ function ProjectDetail() {
   }
 
   return (
-    <main className="pt-[7rem] bg-gradient-to-b from-black via-[#111111] to-[#111111] px-4 md:px-8 lg:px-16">
+    <main className="pt-[7rem] bg-gradient-to-b from-black via-[#111111] to-[#111111] px-4 md:px-8 lg:px-16 select-none">
       <div className="max-w-[1500px] m-auto">
         <div className="flex flex-col gap-2">
           <div className="flex">
@@ -95,7 +95,13 @@ function ProjectDetail() {
               <path fill="none" d="M0 0h24v24H0V0z"></path>
               <path d="M19 15l-6 6-1.42-1.42L15.17 16H4V4h2v10h9.17l-3.59-3.58L13 9l6 6z"></path>
             </svg>
-            Ver Código en GitHub
+            {project.linkToGithub ? (
+              <a target="_blank" href={project.linkToGithub}>
+                Ver Código en GitHub
+              </a>
+            ) : (
+              <span>Ver Código en GitHub (Repositorio privado)</span>
+            )}
           </p>
           <p className="text-[#636363] text-base lg:text-xl"></p>
         </div>
@@ -114,7 +120,13 @@ function ProjectDetail() {
               <path fill="none" d="M0 0h24v24H0V0z"></path>
               <path d="M19 15l-6 6-1.42-1.42L15.17 16H4V4h2v10h9.17l-3.59-3.58L13 9l6 6z"></path>
             </svg>
-            Ver sitio web en vivo
+            {project.linkToLive ? (
+              <a target="_blank" href={project.linkToLive}>
+                Ver sitio web en vivo
+              </a>
+            ) : (
+              <span>Ver sitio web en vivo (No disponible)</span>
+            )}
           </p>
           <p className="text-[#636363] text-base lg:text-xl"></p>
         </div>

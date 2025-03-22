@@ -1,19 +1,32 @@
 import Spline from "@splinetool/react-spline";
-import CustomCursor from "../components/ui/cursor";
 import { HoverBorderGradient } from "../components/ui/hover-border-gradient";
 import { projects } from "../data/projects";
 import ProjectCards from "../components/ProjectCards";
 
 const Home = () => {
+  const openCV = () => {
+    // Abre una nueva ventana para mostrar el archivo PDF del CV
+    const newWindow = window.open(
+      "/CV-Ezequiel_Melo.pdf",
+      "_blank",
+      "width=800,height=600"
+    );
+
+    if (newWindow) {
+      // Asegúrate de que la ventana se enfoque una vez abierta
+      newWindow.focus();
+    }
+  };
   return (
     <>
       <div className="relative w-full h-screen bg-black">
-        <CustomCursor />
         {/* Spline 3D Background */}
-        <Spline
-          className="absolute inset-0 spline pointer-events-none"
-          scene="https://prod.spline.design/rgdhqiAjcPRlgu3n/scene.splinecode"
-        />
+        <div className="hidden md:block">
+          <Spline
+            className="absolute inset-0 spline pointer-events-none"
+            scene="https://prod.spline.design/rgdhqiAjcPRlgu3n/scene.splinecode"
+          />
+        </div>
 
         {/* Texto encima */}
         <div className="absolute top-9/20 left-7 md:top-2/10 md:left-6/10 select-none max-[460px]:left-1/2 max-[460px]:-translate-x-1/2 max-[460px]:w-full z-20">
@@ -33,37 +46,45 @@ const Home = () => {
                   containerClassName=""
                   as="button"
                   className="bg-white text-black font-medium px-4 py-4 cursor-pointer"
+                  onClick={openCV}
                 >
                   Descargar CV
                 </HoverBorderGradient>
               </div>
               <div className="text-center transform transition-transform duration-200 ease-in-out hover:scale-110">
-                <HoverBorderGradient
-                  containerClassName=""
-                  as="button"
-                  className="bg-black text-white px-4 py-4 cursor-pointer"
+                <a
+                  target="_blank"
+                  href="https://www.linkedin.com/in/melo-ezequiel/"
                 >
-                  <img
-                    width="26"
-                    height="26"
-                    src="https://img.icons8.com/FFFFFF/ios/50/linkedin.png"
-                    alt="linkedin"
-                  />
-                </HoverBorderGradient>
+                  <HoverBorderGradient
+                    containerClassName=""
+                    as="button"
+                    className="bg-black text-white px-4 py-4 cursor-pointer"
+                  >
+                    <img
+                      width="26"
+                      height="26"
+                      src="https://img.icons8.com/FFFFFF/ios/50/linkedin.png"
+                      alt="linkedin"
+                    />
+                  </HoverBorderGradient>
+                </a>
               </div>
               <div className="text-center transform transition-transform duration-200 ease-in-out hover:scale-110">
-                <HoverBorderGradient
-                  containerClassName=""
-                  as="button"
-                  className="bg-black text-white px-4 py-4 cursor-pointer"
-                >
-                  <img
-                    width="26"
-                    height="26"
-                    src="https://img.icons8.com/FFFFFF/external-those-icons-lineal-those-icons/24/external-GitHub-social-media-those-icons-lineal-those-icons-2.png"
-                    alt="external-GitHub-social-media-those-icons-lineal-those-icons-2"
-                  />
-                </HoverBorderGradient>
+                <a target="_blank" href="https://github.com/EzequielMelo">
+                  <HoverBorderGradient
+                    containerClassName=""
+                    as="button"
+                    className="bg-black text-white px-4 py-4 cursor-pointer"
+                  >
+                    <img
+                      width="26"
+                      height="26"
+                      src="https://img.icons8.com/FFFFFF/external-those-icons-lineal-those-icons/24/external-GitHub-social-media-those-icons-lineal-those-icons-2.png"
+                      alt="external-GitHub-social-media-those-icons-lineal-those-icons-2"
+                    />
+                  </HoverBorderGradient>
+                </a>
               </div>
             </div>
           </div>
@@ -119,7 +140,10 @@ const Home = () => {
             </p>
           </section>
 
-          <h3 className="text-white w-[90%] lg:w-[75%] text-left font-bold text-6xl select-none">
+          <h3
+            id="projects"
+            className="text-white w-[90%] lg:w-[75%] text-left font-bold text-6xl select-none"
+          >
             Proyectos
           </h3>
           <div className="grid-cols-1 md:grid-cols-2 grid gap-4 gap-y-6 mt-10">

@@ -7,6 +7,7 @@ import {
 } from "motion/react";
 import { cn } from "../lib/Utils";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const FloatingNav = ({
   navItems,
@@ -24,6 +25,23 @@ export const FloatingNav = ({
   const [visible, setVisible] = useState(false);
   // Estado para saber si ya hemos scrolleado hacia abajo
   const [scrolled, setScrolled] = useState(false);
+
+  const navigate = useNavigate();
+
+  const handleProjectLinkClick = (e: React.MouseEvent) => {
+    e.preventDefault(); // Prevenir que el enlace navegue de inmediato
+
+    // Navegar a la página de inicio
+    navigate("/");
+
+    // Usar un pequeño delay para esperar la carga y luego hacer scroll
+    setTimeout(() => {
+      const projectSection = document.getElementById("projects");
+      if (projectSection) {
+        projectSection.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 300); // Pequeña espera para asegurar que la navegación esté lista
+  };
 
   useMotionValueEvent(scrollYProgress, "change", (current) => {
     if (typeof current === "number") {
@@ -72,6 +90,9 @@ export const FloatingNav = ({
             className={cn(
               "relative text-neutral-50 items-center flex space-x-1 hover:text-neutral-300 "
             )}
+            onClick={
+              navItem.name === "Proyectos" ? handleProjectLinkClick : undefined
+            }
           >
             <span className="block text-md font-semibold">{navItem.name}</span>
           </Link>

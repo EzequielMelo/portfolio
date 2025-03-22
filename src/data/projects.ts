@@ -4,7 +4,7 @@ export const projects = [
     category: "Landing Page • Web Design",
     title: "Toque Gourmet",
     description:
-      "Landing page para una empresa dedicada a la venta de viandas y productos gastronomicos, con un diseño moderno y minimalista que busca resaltar los productos de la empresa. Contiene distintas formas de contacto y mucho mas.",
+      "Landing page para una empresa dedicada a la venta de viandas y productos gastronómicos, con un diseño moderno y minimalista que resalta sus productos. Cuenta con diversas formas de contacto y mucho más.",
     technologies: "Angular • Firebase • Tailwind • Typescript • EmailJS",
     linkToGithub: "",
     linkToLive: "https://toquegourmet.com.ar",
@@ -16,7 +16,7 @@ export const projects = [
     category: "Entertainment • Web Design",
     title: "Anime Project",
     description:
-      "Landing page para una empresa dedicada a la venta de viandas y productos gastronomicos, con un diseño moderno y minimalista que busca resaltar los productos de la empresa. Contiene distintas formas de contacto y mucho mas.",
+      "Página web de una clínica en línea con un diseño moderno y minimalista que resalta sus servicios. Cuenta con un sistema de turnos, usuarios, comentarios, puntuaciones y mucho más.",
     technologies:
       "HTML • CSS • Javascript • Handlebars • NodeJS • Express • MySQL ",
     linkToGithub: "https://github.com/EzequielMelo/CodoACodo_Anime-Page",
@@ -29,11 +29,10 @@ export const projects = [
     category: "Landing Page • Web Design",
     title: "Clinical Center",
     description:
-      "Landing page para una empresa dedicada a la venta de viandas y productos gastronomicos, con un diseño moderno y minimalista que busca resaltar los productos de la empresa. Contiene distintas formas de contacto y mucho mas.",
+      "Pagina web de una clinica online, con un diseño moderno y minimalista que busca resaltar los servicios de la clinica. Contiene un sistema de turnos, un sistema de usuarios, comentarios, puntuaciones y mucho mas.",
     technologies:
       "Angular • Firebase hosting • Firebase firestore • Tailwind • Typescript",
-    linkToGithub:
-      "https://github.com/EzequielMelo/TP_LaboratorioIV_ClinicaOnLine",
+    linkToGithub: "",
     linkToLive: "https://clinicaonline-ezequiel-melo.web.app/home",
     image: "/clinicalcenter-mockup.webp",
     video: "/clinicalcenter-video.webm",
@@ -43,11 +42,10 @@ export const projects = [
     category: "Web Game • Interactive UI",
     title: "Juegoteca",
     description:
-      "Landing page para una empresa dedicada a la venta de viandas y productos gastronomicos, con un diseño moderno y minimalista que busca resaltar los productos de la empresa. Contiene distintas formas de contacto y mucho mas.",
+      "Página web de minijuegos en línea con sistema de usuarios y rankings para competir con tus amigos. Cuenta con un chat en vivo y muchas más funciones para que te diviertas y pases horas jugando.",
     technologies:
       "Angular • Firebase hosting • Firebase firestore • Tailwind • Typescript",
-    linkToGithub:
-      "https://github.com/EzequielMelo/TP_LaboratorioIV_SalaDeJuegos",
+    linkToGithub: "",
     linkToLive: "https://sala-de-juegos-ezequiel-melo.web.app/home",
     image: "/juegoteca-mockup.webp",
     video: "/juegoteca-video.webm",
@@ -57,7 +55,7 @@ export const projects = [
     category: "Desktop Aplication • Software Development",
     title: "Sube",
     description:
-      "Landing page para una empresa dedicada a la venta de viandas y productos gastronomicos, con un diseño moderno y minimalista que busca resaltar los productos de la empresa. Contiene distintas formas de contacto y mucho mas.",
+      "Aplicación de escritorio que busca simular el Sistema Único de Boletos Electrónicos de Argentina. Cuenta con una interfaz amigable y fácil de usar, así como un sistema de usuarios, recargas, viajes y mucho más.",
     technologies: "C# • SQL • Windows Forms",
     linkToGithub: "https://github.com/JpCortezF/Sistema-SUBE",
     linkToLive: "",
@@ -69,7 +67,7 @@ export const projects = [
     category: "Landing Page • Web Design",
     title: "Flia",
     description:
-      "Landing page para una empresa dedicada a la venta de viandas y productos gastronomicos, con un diseño moderno y minimalista que busca resaltar los productos de la empresa. Contiene distintas formas de contacto y mucho mas.",
+      "Landing page para una empresa dedicada a la venta de diversos productos para el hogar. Cuenta con formularios de contacto y de descuentos, además de permitirte visualizar algunos de los productos de la empresa.",
     technologies: "HTML • CSS • Javascript • JQuery",
     linkToGithub:
       "https://github.com/EzequielMelo/ArgPrograma_4.0_Landing-Page/tree/main",
