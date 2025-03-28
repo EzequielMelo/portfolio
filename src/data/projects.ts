@@ -6,7 +6,7 @@ export const projects = [
     description:
       "Landing page para una empresa dedicada a la venta de viandas y productos gastronómicos, con un diseño moderno y minimalista que resalta sus productos. Cuenta con diversas formas de contacto y mucho más.",
     technologies: "Angular • Firebase • Tailwind • Typescript • EmailJS",
-    linkToGithub: "",
+    linkToGithub: "https://github.com/EzequielMelo/toque-gourmet",
     linkToLive: "https://toquegourmet.com.ar",
     image: "/toquegourmet-mockup.webp",
     video: "/toquegourmet-video.webm",
