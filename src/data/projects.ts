@@ -45,7 +45,8 @@ export const projects = [
       "Página web de minijuegos en línea con sistema de usuarios y rankings para competir con tus amigos. Cuenta con un chat en vivo y muchas más funciones para que te diviertas y pases horas jugando.",
     technologies:
       "Angular • Firebase hosting • Firebase firestore • Tailwind • Typescript",
-    linkToGithub: "",
+    linkToGithub:
+      "https://github.com/EzequielMelo/TP_LaboratorioIV_SalaDeJuegos",
     linkToLive: "https://sala-de-juegos-ezequiel-melo.web.app/home",
     image: "/juegoteca-mockup.webp",
     video: "/juegoteca-video.webm",
