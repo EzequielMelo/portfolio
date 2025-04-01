@@ -1,7 +1,7 @@
 export const projects = [
   {
     id: "toque-gourmet",
-    category: "Landing Page • Web Design",
+    category: "Landing Page • Design & Development",
     title: "Toque Gourmet",
     description:
       "Landing page para una empresa dedicada a la venta de viandas y productos gastronómicos, con un diseño moderno y minimalista que resalta sus productos. Cuenta con diversas formas de contacto y mucho más.",
@@ -13,7 +13,7 @@ export const projects = [
   },
   {
     id: "anime-project",
-    category: "Entertainment • Web Design",
+    category: "Anime Review & Community Web App • Full-Stack Development",
     title: "Anime Project",
     description:
       "Página web de una clínica en línea con un diseño moderno y minimalista que resalta sus servicios. Cuenta con un sistema de turnos, usuarios, comentarios, puntuaciones y mucho más.",
@@ -26,20 +26,21 @@ export const projects = [
   },
   {
     id: "clinical-center",
-    category: "Landing Page • Web Design",
+    category: "Clinic & Patient Web App • Full-Stack Development",
     title: "Clinical Center",
     description:
       "Pagina web de una clinica online, con un diseño moderno y minimalista que busca resaltar los servicios de la clinica. Contiene un sistema de turnos, un sistema de usuarios, comentarios, puntuaciones y mucho mas.",
     technologies:
       "Angular • Firebase hosting • Firebase firestore • Tailwind • Typescript",
-    linkToGithub: "",
+    linkToGithub:
+      "https://github.com/EzequielMelo/TP_LaboratorioIV_ClinicaOnLine",
     linkToLive: "https://clinicaonline-ezequiel-melo.web.app/home",
     image: "/clinicalcenter-mockup.webp",
     video: "/clinicalcenter-video.webm",
   },
   {
     id: "juegoteca",
-    category: "Web Game • Interactive UI",
+    category: "Web Game • Full-Stack Development",
     title: "Juegoteca",
     description:
       "Página web de minijuegos en línea con sistema de usuarios y rankings para competir con tus amigos. Cuenta con un chat en vivo y muchas más funciones para que te diviertas y pases horas jugando.",
