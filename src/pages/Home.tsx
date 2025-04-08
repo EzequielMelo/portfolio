@@ -21,7 +21,7 @@ const Home = () => {
     <>
       <div className="relative w-full h-screen bg-black">
         {/* Spline 3D Background */}
-        <div className="hidden md:block">
+        <div className="block">
           <Spline
             className="absolute inset-0 spline pointer-events-none"
             scene="https://prod.spline.design/rgdhqiAjcPRlgu3n/scene.splinecode"
@@ -30,7 +30,7 @@ const Home = () => {
 
         {/* Texto encima */}
         <div className="absolute top-9/20 left-7 md:top-2/10 md:left-6/10 select-none max-[460px]:left-1/2 max-[460px]:-translate-x-1/2 max-[460px]:w-full z-20">
-          <div className="flex flex-col items-center space-y-4 m-0 p-0">
+          <div className="flex flex-col items-center space-y-4 md:m-0 md:p-0 bg-gray-950/40 rounded-lg shadow-lg p-4 m-2">
             <h1 className="font-bold text-white text-[90px] sm:text-[120px] md:text-[170px] m-0 p-0">
               Hola!
             </h1>
