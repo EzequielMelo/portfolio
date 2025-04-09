@@ -119,7 +119,7 @@ const Home = () => {
 
       <div className="bg-gradient-to-b from-black via-[#111111] to-[#111111] flex flex-col items-center h-full px-4 md:px-8 lg:px-16 pt-4">
         <div className="max-w-[1500px] m-auto select-none">
-          <section className="bg-[url('me.png')] bg-[70%_40%] md:bg-[25%_28%] w-full h-[60vh] lg:h-[90vh] mt-10 bg-cover rounded-3xl border-2 border-[#272727]"></section>
+          <section className="bg-[url('/me.png')] bg-[70%_40%] md:bg-[25%_28%] w-full h-[60vh] lg:h-[90vh] mt-10 bg-cover rounded-3xl border-2 border-[#272727]"></section>
           <section>
             <p className="text-xl md:text-2xl lg:text-3xl font-medium text-[#636363] text-pretty md:leading-[2rem] lg:leading-[3rem] mt-8">
               Apasionado por el mundo de la programación y la tecnología, me
