@@ -16,7 +16,7 @@ export const projects = [
     category: "Anime Review & Community Web App • Full-Stack Development",
     title: "Anime Project",
     description:
-      "Página web de una clínica en línea con un diseño moderno y minimalista que resalta sus servicios. Cuenta con un sistema de turnos, usuarios, comentarios, puntuaciones y mucho más.",
+      "Una plataforma con diseño moderno y minimalista que incluye un catálogo de series, sistema de usuarios, comentarios para discusiones en cada sección, personalización de perfiles y más..",
     technologies:
       "HTML • CSS • Javascript • Handlebars • NodeJS • Express • MySQL ",
     linkToGithub: "https://github.com/EzequielMelo/CodoACodo_Anime-Page",
