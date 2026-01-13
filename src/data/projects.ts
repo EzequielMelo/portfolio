@@ -1,5 +1,17 @@
 export const projects = [
   {
+    id: "the-last-dance-restaurant",
+    category: "App Mobile • Full-Stack Development",
+    title: "The Last Dance - Restaurant",
+    description:
+      "Aplicación móvil para un restaurante ficticio llamado The Last Dance. Permite a los usuarios explorar el menú, realizar pedidos en línea y gestionar reservas de mesas de manera eficiente.",
+    technologies: "Angular • Firebase • Tailwind • Typescript • EmailJS",
+    linkToGithub: "https://github.com/EzequielMelo/TheLastDance-2025",
+    linkToLive: "",
+    image: "/thelastdance-mockup.webp",
+    video: "/thelastdance-video.webm",
+  },
+  {
     id: "toque-gourmet",
     category: "Landing Page • Design & Development",
     title: "Toque Gourmet",
@@ -10,19 +22,6 @@ export const projects = [
     linkToLive: "https://toquegourmet.com.ar",
     image: "/toquegourmet-mockup.webp",
     video: "/toquegourmet-video.webm",
-  },
-  {
-    id: "anime-project",
-    category: "Anime Review & Community Web App • Full-Stack Development",
-    title: "Anime Project",
-    description:
-      "Una plataforma con diseño moderno y minimalista que incluye un catálogo de series, sistema de usuarios, comentarios para discusiones en cada sección, personalización de perfiles y más..",
-    technologies:
-      "HTML • CSS • Javascript • Handlebars • NodeJS • Express • MySQL ",
-    linkToGithub: "https://github.com/EzequielMelo/CodoACodo_Anime-Page",
-    linkToLive: "https://anime-project.alwaysdata.net/",
-    image: "/animeproject-mockup.webp",
-    video: "/animeproject-video.webm",
   },
   {
     id: "clinical-center",
@@ -37,6 +36,19 @@ export const projects = [
     linkToLive: "https://clinicaonline-ezequiel-melo.web.app/home",
     image: "/clinicalcenter-mockup.webp",
     video: "/clinicalcenter-video.webm",
+  },
+  {
+    id: "anime-project",
+    category: "Anime Review & Community Web App • Full-Stack Development",
+    title: "Anime Project",
+    description:
+      "Una plataforma con diseño moderno y minimalista que incluye un catálogo de series, sistema de usuarios, comentarios para discusiones en cada sección, personalización de perfiles y más..",
+    technologies:
+      "HTML • CSS • Javascript • Handlebars • NodeJS • Express • MySQL ",
+    linkToGithub: "https://github.com/EzequielMelo/CodoACodo_Anime-Page",
+    linkToLive: "https://anime-project.alwaysdata.net/",
+    image: "/animeproject-mockup.webp",
+    video: "/animeproject-video.webm",
   },
   {
     id: "juegoteca",
