@@ -60,6 +60,27 @@ function ProjectDetail() {
           </p>
         </div>
 
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-4 text-left md:ml-[2.5rem] lg:ml-[4.75rem] border-t-2 border-[#636363] py-10">
+          <p className="text-[#636363] text-base lg:text-xl flex gap-4 items-center">
+            <svg
+              stroke="currentColor"
+              fill="currentColor"
+              strokeWidth="0"
+              viewBox="0 0 24 24"
+              height="1em"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path fill="none" d="M0 0h24v24H0V0z"></path>
+              <path d="M19 15l-6 6-1.42-1.42L15.17 16H4V4h2v10h9.17l-3.59-3.58L13 9l6 6z"></path>
+            </svg>
+            Aprendizajes o desafíos
+          </p>
+          <p className="text-[#636363] text-base lg:text-xl">
+            {project.learnings}
+          </p>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left md:ml-[2.5rem] lg:ml-[4.75rem] border-t-2 border-[#636363] py-10">
           <p className="text-[#636363] text-base lg:text-xl flex gap-4 items-center">
             <svg

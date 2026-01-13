@@ -154,7 +154,7 @@ const Home = () => {
           </section>
           <section className="mt-10 lg:mt-18 mb-18">
             <p className="text-xl md:text-2xl lg:text-3xl font-medium text-[#636363] text-pretty md:leading-[2rem] lg:leading-[3rem]">
-              Actualmente curso la{" "}
+              Recientemente he finalizado la{" "}
               <span className="text-2xl md:text-3xl lg:text-4xl font-cormorant italic  font-bold text-white">
                 tecnicatura en programación en la UTN
               </span>{" "}
