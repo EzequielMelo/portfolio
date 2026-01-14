@@ -1,54 +1,87 @@
-# React + TypeScript + Vite
+# Portfolio – Ezequiel Melo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Portfolio personal desarrollado para presentar mis proyectos, experiencia y stack tecnológico como **Full Stack Developer**.
 
-Currently, two official plugins are available:
+El sitio reúne proyectos académicos, profesionales y personales, con foco en buenas prácticas, arquitectura, experiencia de usuario y tecnologías modernas.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Portfolio online:**  
+👉 https://ezequiel-melo.netlify.app/
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Sobre mí
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Soy **Técnico Universitario en Programación (UTN)** y Full Stack Developer, con experiencia desarrollando aplicaciones web y mobile utilizando **React, Angular, Node.js y TypeScript**.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Me interesa especialmente:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- El diseño de arquitecturas claras y escalables
+- La integración frontend–backend
+- La experiencia de usuario y el detalle visual
+- El trabajo en equipo y los entornos colaborativos
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+Actualmente me encuentro en búsqueda de mi **primer empleo como desarrollador**.
+
+---
+
+## Qué vas a encontrar en este portfolio
+
+- Proyectos **full-stack**, **frontend** y **backend**
+- Aplicaciones web y mobile
+- Experiencias académicas y proyectos reales
+- Tecnologías modernas y stacks variados
+- Enlaces a repositorios y demos funcionales
+- Información clara sobre el rol y aprendizajes en cada proyecto
+
+---
+
+## Stack tecnológico principal
+
+### Frontend
+
+- React
+- Angular
+- Vite
+- Tailwind CSS
+
+### Backend
+
+- Node.js
+- Express
+- TypeScript
+
+### Base de datos & Cloud
+
+- PostgreSQL
+- Supabase
+- Firebase
+
+### Otros
+
+- React Native (Expo)
+- Socket.IO
+- SQL
+- C#
+
+---
+
+## Tecnologías utilizadas en este proyecto
+
+Este portfolio fue desarrollado utilizando:
+
+- **React + TypeScript**
+- **Vite**
+- **Tailwind CSS**
+- **Spline** (para escenas 3D en desktop)
+- Diseño responsive y mobile-first
+- Enfoque minimalista y orientado a performance
+
+---
+
+## Nota
+
+Este proyecto tiene como objetivo mostrar **mi evolución como programador**.
+
+---
+
+Gracias por tomarte el tiempo de visitar mi portfolio.
