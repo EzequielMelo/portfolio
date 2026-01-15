@@ -11,6 +11,8 @@ export const projects = [
       "React Native (Expo) • Node.js (Express) • TypeScript • PostgreSQL (Supabase) • Socket.IO • Axios • Tailwind • Google Services",
     linkToGithub: "https://github.com/EzequielMelo/TheLastDance-2025",
     linkToLive: "",
+    linkToVideos:
+      "https://youtube.com/playlist?list=PLwNluoTBkh_4kQ6Sn-1aLSRbdmw5-HTfD&si=CxJDunI92GCh3Ejt",
     image: "/thelastdance-mockup.webp",
     video: "/thelastdance-video.webm",
   },
@@ -56,6 +58,7 @@ export const projects = [
       "React (Vite) • Tailwind CSS • TypeScript • PostgreSQL (Supabase) • Node.js (Express)",
     linkToGithub: "https://github.com/EzequielMelo/Polo-IT_Proyecto_BackEnd",
     linkToLive: "",
+    linkToVideos: "https://www.youtube.com/watch?v=-moeX12O1Jc",
     image: "/adoptme-mockup.webp",
     video: "/adoptme-video.webm",
   },

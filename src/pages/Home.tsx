@@ -8,21 +8,17 @@ const Home = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // Función para detectar si el ancho es menor a 768px (mobile)
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
     };
 
-    // Verifica el tamaño al cargar
     handleResize();
 
-    // Escucha los cambios de tamaño
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const openCV = () => {
-    // Abre una nueva ventana para mostrar el archivo PDF del CV
     const newWindow = window.open(
       "/CV-Ezequiel_Melo.pdf",
       "_blank",
@@ -30,7 +26,6 @@ const Home = () => {
     );
 
     if (newWindow) {
-      // Asegúrate de que la ventana se enfoque una vez abierta
       newWindow.focus();
     }
   };
@@ -40,7 +35,7 @@ const Home = () => {
       <div className="relative w-full h-screen bg-black">
         {/* Imagen para mobile */}
         <img
-          src="backgroundRobot.jpg" // <- poné la ruta a tu imagen aquí
+          src="backgroundRobot.jpg"
           alt="Render"
           className="block md:hidden w-full h-full object-cover"
         />

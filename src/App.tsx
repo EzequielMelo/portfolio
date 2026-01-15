@@ -10,7 +10,7 @@ function App() {
   const navItems = [
     { name: "Inicio", link: "/" },
     { name: "Proyectos", link: "#projects" },
-    { name: "Contacto", link: "mailto:ezequielanthonymelo@gmail.com" },
+    { name: "Contacto", link: "#contact" },
   ];
 
   return (

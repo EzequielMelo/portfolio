@@ -21,26 +21,29 @@ export const FloatingNav = ({
 }) => {
   const { scrollYProgress } = useScroll();
 
-  // Estado para controlar la visibilidad
   const [visible, setVisible] = useState(false);
-  // Estado para saber si ya hemos scrolleado hacia abajo
   const [scrolled, setScrolled] = useState(false);
 
   const navigate = useNavigate();
 
   const handleProjectLinkClick = (e: React.MouseEvent) => {
-    e.preventDefault(); // Prevenir que el enlace navegue de inmediato
+    e.preventDefault();
 
-    // Navegar a la página de inicio
     navigate("/");
 
-    // Usar un pequeño delay para esperar la carga y luego hacer scroll
     setTimeout(() => {
       const projectSection = document.getElementById("projects");
       if (projectSection) {
         projectSection.scrollIntoView({ behavior: "smooth" });
       }
-    }, 300); // Pequeña espera para asegurar que la navegación esté lista
+    }, 300);
+  };
+
+  const handleContactClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const user = "ezequielanthonymelo";
+    const domain = "gmail.com";
+    window.location.href = `mailto:${user}@${domain}`;
   };
 
   useMotionValueEvent(scrollYProgress, "change", (current) => {
@@ -48,17 +51,14 @@ export const FloatingNav = ({
       const previous = scrollYProgress.getPrevious();
       const direction = previous !== undefined ? current - previous : 0;
 
-      // Si el scroll está por debajo de un umbral, marcar como scrolleado
       if (scrollYProgress.get() < 0.05) {
-        // Si estamos en el top, podemos ocultarlo si no hemos scrolleado antes
         if (!scrolled) {
           setVisible(false);
         }
       } else {
         if (direction < 0 && !scrolled) {
-          // Si hemos scrolleado hacia abajo por primera vez
           setVisible(true);
-          setScrolled(true); // Marca que ya hemos scrolleado
+          setScrolled(true);
         }
       }
     }
@@ -91,7 +91,11 @@ export const FloatingNav = ({
               "relative text-neutral-50 items-center flex space-x-1 hover:text-neutral-300 "
             )}
             onClick={
-              navItem.name === "Proyectos" ? handleProjectLinkClick : undefined
+              navItem.name === "Proyectos"
+                ? handleProjectLinkClick
+                : navItem.name === "Contacto"
+                ? handleContactClick
+                : undefined
             }
           >
             <span className="block text-md font-semibold">{navItem.name}</span>
