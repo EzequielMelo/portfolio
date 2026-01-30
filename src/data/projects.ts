@@ -13,7 +13,18 @@ export const projects = [
     linkToLive: "",
     linkToVideos:
       "https://youtube.com/playlist?list=PLwNluoTBkh_4kQ6Sn-1aLSRbdmw5-HTfD&si=CxJDunI92GCh3Ejt",
-    image: "/thelastdance-mockup.webp",
+    image: "/thelastdance-mockup2.webp",
+    images: [
+      "/thelastdance-mockup.webp",
+      "/thelastdance-mockup2.webp",
+      "/thelastdance-splashscreen.webp",
+      "/thelastdance-ordenenmesa.webp",
+      "/thelastdance-menu.webp",
+      "/thelastdance-pedido.webp",
+      "/thelastdance-carrito.webp",
+      "/thelastdance-encuesta.webp",
+      "/thelastdance-respuestaencuestas.webp",
+    ],
     video: "/thelastdance-video.webm",
   },
   {
@@ -30,6 +41,16 @@ export const projects = [
       "https://github.com/EzequielMelo/TP_LaboratorioIV_ClinicaOnLine",
     linkToLive: "https://clinicaonline-ezequiel-melo.web.app/home",
     image: "/clinicalcenter-mockup.webp",
+    images: [
+      "/clinicalcenter-mockup.webp",
+      "/clinicalcenter-home.webp",
+      "/clinicalcenter-myprofileadmin.webp",
+      "/clinicalcenter-logsadmin.webp",
+      "/clinicalcenter-myprofilespecialist.webp",
+      "/clinicalcenter-mypatientsspecialist.webp",
+      "/clinicalcenter-myprofilepatient.webp",
+      "/clinicalcenter-myappointmentspatient.webp",
+    ],
     video: "/clinicalcenter-video.webm",
   },
   {
@@ -44,6 +65,14 @@ export const projects = [
     linkToGithub: "https://github.com/EzequielMelo/toque-gourmet",
     linkToLive: "https://toquegourmet.com.ar",
     image: "/toquegourmet-mockup.webp",
+    images: [
+      "/toquegourmet-mockup.webp",
+      "/toquegourmet-home.webp",
+      "/toquegourmet-services.webp",
+      "/toquegourmet-aboutus.webp",
+      "/toquegourmet-faqs.webp",
+      "/toquegourmet-contact.webp",
+    ],
     video: "/toquegourmet-video.webm",
   },
   {

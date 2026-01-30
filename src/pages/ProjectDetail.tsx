@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { projects } from "../data/projects";
 import { Link } from "react-router-dom";
+import ImageSlider from "../components/ui/ImageSlider";
 
 function ProjectDetail() {
   const { id } = useParams();
@@ -182,14 +183,9 @@ function ProjectDetail() {
             autoPlay
             className="w-full rounded-3xl"
           />
-          <img
-            src={project.image}
-            alt={project.title}
-            loading="lazy"
-            width={1500}
-            height={1500}
-            decoding="async"
-            className="w-full rounded-3xl"
+          <ImageSlider
+            images={project.images || [project.image]}
+            projectTitle={project.title}
           />
         </div>
       </div>
