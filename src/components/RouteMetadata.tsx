@@ -7,9 +7,9 @@ const SITE_URL = (
 ).replace(/\/+$/, "");
 
 const DEFAULT_METADATA = {
-  title: "Ezequiel Melo • Full Stack Developer",
+  title: "Ezequiel Melo • Backend Developer · .NET & DevOps",
   description:
-    "Portfolio de Ezequiel Melo, desarrollador Full Stack especializado en aplicaciones web, arquitectura, frontend, backend y experiencias digitales.",
+    "Portfolio de Ezequiel Melo, desarrollador backend especializado en C#, .NET, arquitectura de software, bases de datos, contenedores y despliegues automatizados.",
   canonicalUrl: `${SITE_URL}/`,
   type: "website",
 };
