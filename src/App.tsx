@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import ProjectDetail from "./pages/ProjectDetail";
 import CustomCursor from "./components/ui/cursor";
 import ScrollToTop from "./components/ui/ScrollToTop";
+import RouteMetadata from "./components/RouteMetadata";
 
 function App() {
   const navItems = [
@@ -15,6 +16,7 @@ function App() {
 
   return (
     <Router>
+      <RouteMetadata />
       <ScrollToTop />
       <CustomCursor />
       <FloatingNav navItems={navItems} />

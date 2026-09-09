@@ -7,7 +7,7 @@ import {
   type MouseEvent,
   type PointerEvent as ReactPointerEvent,
 } from "react";
-import { Link } from "react-router-dom";
+import BackToProjectsLink from "../components/BackToProjectsLink";
 import type {
   CaseStudyContentBlock,
   CaseStudyProject,
@@ -132,7 +132,7 @@ function DiagramViewer({ diagram, onClose }: DiagramViewerProps) {
     >
       <div className="mb-3 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-white/10 bg-[#161616] px-3 py-2">
         <p className="min-w-0 flex-1 truncate text-sm font-medium text-white md:text-base">
-          {diagram.caption}
+          {diagram.caption ?? diagram.alt}
         </p>
         <div className="flex items-center gap-2">
           <button
@@ -140,7 +140,7 @@ function DiagramViewer({ diagram, onClose }: DiagramViewerProps) {
             onClick={() => setZoom((current) => Math.max(1, current - 0.25))}
             disabled={zoom === 1}
             className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-xl text-white transition-colors hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-30"
-            aria-label="Alejar diagrama"
+            aria-label="Alejar imagen"
           >
             −
           </button>
@@ -148,7 +148,7 @@ function DiagramViewer({ diagram, onClose }: DiagramViewerProps) {
             type="button"
             onClick={() => setZoom(1)}
             className="h-10 rounded-full border border-white/15 px-3 text-sm text-white transition-colors hover:bg-white/10"
-            aria-label="Restablecer zoom"
+            aria-label="Restablecer zoom de la imagen"
           >
             {Math.round(zoom * 100)}%
           </button>
@@ -157,7 +157,7 @@ function DiagramViewer({ diagram, onClose }: DiagramViewerProps) {
             onClick={() => setZoom((current) => Math.min(3, current + 0.25))}
             disabled={zoom === 3}
             className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-xl text-white transition-colors hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-30"
-            aria-label="Acercar diagrama"
+            aria-label="Acercar imagen"
           >
             +
           </button>
@@ -165,7 +165,7 @@ function DiagramViewer({ diagram, onClose }: DiagramViewerProps) {
             type="button"
             onClick={onClose}
             className="ml-1 flex h-10 w-10 items-center justify-center rounded-full bg-white text-2xl text-black transition-transform hover:scale-105"
-            aria-label="Cerrar diagrama"
+            aria-label="Cerrar imagen ampliada"
           >
             ×
           </button>
@@ -350,13 +350,31 @@ function CaseStudyProjectDetail({ project }: CaseStudyProjectDetailProps) {
               decoding="async"
               className="h-auto w-full transition-transform duration-500 group-hover:scale-[1.01]"
             />
-            <span className="absolute bottom-3 right-3 rounded-full bg-black/80 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur-sm md:text-sm">
-              Ampliar
+            <span className="absolute bottom-3 right-3 rounded-full bg-black/80 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur-sm md:hidden">
+              Tocá para ampliar
+            </span>
+            <span className="absolute bottom-4 right-4 hidden h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-black/75 text-white opacity-0 shadow-lg backdrop-blur-sm transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100 md:flex">
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                fill="none"
+                className="h-4 w-4"
+              >
+                <path
+                  d="M8 3H3v5M16 3h5v5M21 16v5h-5M3 16v5h5"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
             </span>
           </button>
-          <figcaption className="px-2 pb-1 pt-4 text-sm leading-6 text-[#777] md:px-3 md:text-base">
-            {block.caption}
-          </figcaption>
+          {block.caption && (
+            <figcaption className="px-2 pb-1 pt-4 text-sm leading-6 text-[#777] md:px-3 md:text-base">
+              {block.caption}
+            </figcaption>
+          )}
         </figure>
       );
     }
@@ -425,19 +443,10 @@ function CaseStudyProjectDetail({ project }: CaseStudyProjectDetailProps) {
           id={FIRST_SECTION_ID}
           className="scroll-mt-28 border-b border-white/10 pb-16 md:pb-24"
         >
-          <Link
-            to="/"
-            className="mb-10 inline-flex items-center gap-2 text-sm font-medium text-[#777] transition-colors hover:text-white"
-          >
-            <span aria-hidden="true">←</span>
-            Volver a proyectos
-          </Link>
+          <BackToProjectsLink />
 
           <div className="grid gap-12 lg:grid-cols-[minmax(0,1.35fr)_minmax(300px,0.65fr)] lg:items-end">
             <div>
-              <p className="mb-5 font-mono text-xs uppercase tracking-[0.22em] text-[#777] md:text-sm">
-                01 / 14 · Caso de estudio
-              </p>
               <p className="mb-4 text-sm font-semibold uppercase tracking-[0.16em] text-[#777] md:text-base">
                 {project.category}
               </p>
@@ -484,6 +493,12 @@ function CaseStudyProjectDetail({ project }: CaseStudyProjectDetailProps) {
               Código fuente privado por tratarse de una solución comercial.
             </p>
           </div>
+
+          {project.introFigure && (
+            <div className="mt-14 md:mt-20">
+              {renderBlock(project.introFigure, -1)}
+            </div>
+          )}
         </section>
 
         <details
@@ -498,7 +513,7 @@ function CaseStudyProjectDetail({ project }: CaseStudyProjectDetailProps) {
                   indexItems.find((item) => item.id === activeSection)?.number ??
                   1,
                 ).padStart(2, "0")}
-                /14
+                /{indexItems.length}
               </span>
             </span>
           </summary>
@@ -528,9 +543,6 @@ function CaseStudyProjectDetail({ project }: CaseStudyProjectDetailProps) {
                 className="scroll-mt-28 border-b border-white/10 py-14 first:pt-0 last:border-b-0 md:py-20"
               >
                 <div className="mb-8 md:mb-10">
-                  <p className="mb-3 font-mono text-xs tracking-[0.18em] text-[#555] md:text-sm">
-                    {String(section.number).padStart(2, "0")} / 14
-                  </p>
                   <h2 className="max-w-4xl text-balance text-3xl font-bold leading-tight text-white md:text-5xl">
                     {section.title}
                   </h2>

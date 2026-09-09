@@ -11,7 +11,7 @@ export type CaseStudyContentBlock =
       type: "figure";
       src: string;
       alt: string;
-      caption: string;
+      caption?: string;
     }
   | {
       type: "list";
@@ -56,6 +56,7 @@ export interface CaseStudySection {
 export interface CaseStudyProject extends ProjectBase {
   detailType: "case-study";
   linkToLive: string;
+  introFigure?: Extract<CaseStudyContentBlock, { type: "figure" }>;
   summary: string;
   participation: string;
   technologies: string[];
@@ -70,6 +71,7 @@ export const projects: Project[] = [
     id: "ecommerce-modular",
     category: "E-commerce Platform • Full Stack & DevOps",
     title: "ECommerce Modular",
+    image: "/portada-ecommerce.webp",
     cardStack: ".NET 10 · Angular · PostgreSQL",
     linkToLive: "https://core-gamer.com/",
     summary:
@@ -87,6 +89,13 @@ export const projects: Project[] = [
       "Nginx",
       "Cloudflare",
     ],
+    introFigure: {
+      type: "figure",
+      src: "/portada-ecommerce.webp",
+      alt: "Tienda Core Gamer presentada en una notebook y un teléfono para mostrar su diseño responsive",
+      caption:
+        "Plataforma modular de comercio electrónico diseñada para ofrecer una experiencia de compra responsive y centralizar la operación comercial desde un panel administrativo.",
+    },
     sections: [
       {
         id: "el-desafio",
@@ -382,6 +391,76 @@ export const projects: Project[] = [
           {
             type: "paragraph",
             text: "La reutilización en un proyecto B2B también permitió identificar qué partes constituían capacidades generales de la plataforma y cuáles debían permanecer específicas de cada cliente.",
+          },
+        ],
+      },
+      {
+        id: "producto-en-funcionamiento",
+        number: 15,
+        title: "El producto en funcionamiento",
+        blocks: [
+          {
+            type: "paragraph",
+            text: "La arquitectura se materializa en dos experiencias conectadas: una tienda responsive orientada al cliente y un panel administrativo para gestionar la operación comercial. Las siguientes pantallas utilizan información demostrativa y permiten observar algunas de las capacidades construidas sobre la plataforma.",
+          },
+          {
+            type: "subheading",
+            text: "Experiencia de compra de principio a fin",
+          },
+          {
+            type: "figure",
+            src: "/ecommerce-1.webp",
+            alt: "Secuencia mobile de la tienda Core Gamer desde la exploración de productos hasta la confirmación del pedido",
+          },
+          {
+            type: "paragraph",
+            text: "La aplicación ofrece una experiencia adaptada a dispositivos móviles que acompaña al usuario durante las principales etapas de compra: exploración del catálogo, consulta detallada de productos, administración del carrito y confirmación del pedido.",
+          },
+          {
+            type: "paragraph",
+            text: "La interfaz reorganiza el contenido y los controles según el tamaño de pantalla, conservando la información necesaria para completar cada operación sin depender de una versión exclusiva para escritorio.",
+          },
+          {
+            type: "subheading",
+            text: "Visibilidad sobre la operación comercial",
+          },
+          {
+            type: "figure",
+            src: "/ecommerce-2.webp",
+            alt: "Panel administrativo de Core Gamer con indicadores y gráficos de la operación comercial",
+          },
+          {
+            type: "paragraph",
+            text: "El panel administrativo centraliza indicadores relacionados con ventas, reembolsos, contracargos, ingresos, márgenes y devoluciones. La información se presenta mediante métricas resumidas y gráficos temporales para facilitar el seguimiento de la actividad comercial.",
+          },
+          {
+            type: "paragraph",
+            text: "El acceso a estas herramientas se encuentra separado de la experiencia del cliente y sujeto a las responsabilidades asignadas al personal administrativo.",
+          },
+          {
+            type: "subheading",
+            text: "Trazabilidad de movimientos de inventario",
+          },
+          {
+            type: "figure",
+            src: "/ecommerce-3.webp",
+            alt: "Historial administrativo de stock con rentabilidad y bitácora de movimientos de inventario",
+          },
+          {
+            type: "paragraph",
+            text: "El sistema conserva el historial de movimientos de cada producto, relacionando variaciones de stock con su origen y registrando los valores anteriores y posteriores a cada operación.",
+          },
+          {
+            type: "paragraph",
+            text: "Esta trazabilidad permite diferenciar ventas, asignaciones y cargas iniciales, además de consultar información histórica de costos, ingresos y rentabilidad asociada al inventario. Los registros administrativos también permiten identificar cuándo ocurrió cada cambio y qué actor o proceso lo produjo.",
+          },
+          {
+            type: "paragraph",
+            text: "Estas interfaces representan solamente la capa visible de una plataforma que integra autenticación y autorización, catálogo, inventario, ventas, pagos, facturación, procesamiento en segundo plano y despliegue automatizado.",
+          },
+          {
+            type: "paragraph",
+            text: "Las capturas anteriores presentan una selección de sus principales funcionalidades, pero el sistema incluye otros flujos y herramientas que pueden explorarse directamente en su entorno de demostración. La aplicación se encuentra desplegada y disponible para probar la experiencia completa, tanto desde la perspectiva del cliente como desde el panel administrativo.",
           },
         ],
       },
