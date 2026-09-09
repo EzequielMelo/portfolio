@@ -5,3 +5,12 @@
 @theme {
   --font-cormorant: "Cormorant", "sans-serif"
 }
+
+.diagram-pan-container {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.diagram-pan-container::-webkit-scrollbar {
+  display: none;
+}
