@@ -1,12 +1,22 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { projects } from "../data/projects";
 
 const configuredSiteUrl = import.meta.env.VITE_SITE_URL?.trim();
 const SITE_URL = (
   configuredSiteUrl || "https://ezequiel-melo.netlify.app"
 ).replace(/\/+$/, "");
 
-const DEFAULT_METADATA = {
+interface PageMetadata {
+  title: string;
+  description: string;
+  canonicalUrl: string;
+  type: "website" | "article";
+  image?: string;
+  imageAlt?: string;
+}
+
+const DEFAULT_METADATA: PageMetadata = {
   title: "Ezequiel Melo • Backend Developer · .NET & DevOps",
   description:
     "Portfolio de Ezequiel Melo, desarrollador backend especializado en C#, .NET, arquitectura de software, bases de datos, contenedores y despliegues automatizados.",
@@ -14,16 +24,32 @@ const DEFAULT_METADATA = {
   type: "website",
 };
 
-const ECOMMERCE_METADATA = {
-  title: "ECommerce Modular | Ezequiel Melo",
-  description:
-    "Plataforma e-commerce modular desarrollada con .NET 10, Angular y PostgreSQL, con arquitectura modular, Docker, CI/CD y despliegue automatizado.",
-  canonicalUrl: `${SITE_URL}/projects/ecommerce-modular`,
-  type: "article",
-  image: `${SITE_URL}/portada-ecommerce.webp`,
-  imageAlt:
-    "Tienda Core Gamer presentada en una notebook y un teléfono para mostrar su diseño responsive",
-};
+function absoluteAssetUrl(asset?: string) {
+  if (!asset) return undefined;
+  return /^https?:\/\//.test(asset) ? asset : `${SITE_URL}${asset}`;
+}
+
+function getMetadata(pathname: string): PageMetadata {
+  const match = pathname.match(/^\/projects\/([^/]+)\/?$/);
+  if (!match) return DEFAULT_METADATA;
+
+  const project = projects.find(({ id }) => id === match[1]);
+  if (!project) return DEFAULT_METADATA;
+
+  const description =
+    project.detailType === "case-study"
+      ? project.metadataDescription ?? project.summary
+      : project.description;
+
+  return {
+    title: `${project.title} | Ezequiel Melo`,
+    description,
+    canonicalUrl: `${SITE_URL}/projects/${project.id}`,
+    type: "article",
+    image: absoluteAssetUrl(project.image),
+    imageAlt: project.image ? project.title : undefined,
+  };
+}
 
 function setMeta(
   attribute: "name" | "property",
@@ -60,10 +86,7 @@ function RouteMetadata() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    const isEcommerceCaseStudy = pathname === "/projects/ecommerce-modular";
-    const metadata = isEcommerceCaseStudy
-      ? ECOMMERCE_METADATA
-      : DEFAULT_METADATA;
+    const metadata = getMetadata(pathname);
 
     document.title = metadata.title;
     setCanonical(metadata.canonicalUrl);
@@ -74,48 +97,17 @@ function RouteMetadata() {
     setMeta("property", "og:title", metadata.title);
     setMeta("property", "og:description", metadata.description);
     setMeta("property", "og:url", metadata.canonicalUrl);
-    setMeta(
-      "property",
-      "og:image",
-      isEcommerceCaseStudy ? ECOMMERCE_METADATA.image : undefined,
-    );
-    setMeta(
-      "property",
-      "og:image:alt",
-      isEcommerceCaseStudy ? ECOMMERCE_METADATA.imageAlt : undefined,
-    );
-    setMeta(
-      "property",
-      "og:image:type",
-      isEcommerceCaseStudy ? "image/webp" : undefined,
-    );
-    setMeta(
-      "property",
-      "og:image:width",
-      isEcommerceCaseStudy ? "1672" : undefined,
-    );
-    setMeta(
-      "property",
-      "og:image:height",
-      isEcommerceCaseStudy ? "941" : undefined,
-    );
+    setMeta("property", "og:image", metadata.image);
+    setMeta("property", "og:image:alt", metadata.imageAlt);
     setMeta(
       "name",
       "twitter:card",
-      isEcommerceCaseStudy ? "summary_large_image" : "summary",
+      metadata.image ? "summary_large_image" : "summary",
     );
     setMeta("name", "twitter:title", metadata.title);
     setMeta("name", "twitter:description", metadata.description);
-    setMeta(
-      "name",
-      "twitter:image",
-      isEcommerceCaseStudy ? ECOMMERCE_METADATA.image : undefined,
-    );
-    setMeta(
-      "name",
-      "twitter:image:alt",
-      isEcommerceCaseStudy ? ECOMMERCE_METADATA.imageAlt : undefined,
-    );
+    setMeta("name", "twitter:image", metadata.image);
+    setMeta("name", "twitter:image:alt", metadata.imageAlt);
   }, [pathname]);
 
   return null;
