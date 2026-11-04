@@ -426,7 +426,7 @@ const Home = () => {
                     </h4>
                     <p className="mt-3 font-mono text-xs leading-5 text-[#666] md:text-sm">
                       <time dateTime="2026">2026</time> — Actualidad · Cliente
-                      real · En desarrollo
+                      real · Publicado · Mantenimiento activo
                     </p>
                   </header>
                   <div className="space-y-5 text-pretty text-base leading-8 text-[#858585] md:text-lg md:leading-9">
@@ -440,10 +440,10 @@ const Home = () => {
                       y gestión financiera.
                     </p>
                     <p>
-                      El producto se desarrolla mediante conversaciones y
-                      demostraciones periódicas con el cliente, lo que permite
-                      validar los avances y adaptar las funcionalidades a sus
-                      procesos reales.
+                      El sistema se encuentra publicado y continúa evolucionando
+                      mediante mantenimiento correctivo, actualización de
+                      dependencias, revisión de vulnerabilidades y nuevas
+                      funcionalidades validadas directamente con el cliente.
                     </p>
                   </div>
                 </article>
