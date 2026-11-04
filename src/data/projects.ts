@@ -56,6 +56,11 @@ export interface CaseStudySection {
 export interface CaseStudyProject extends ProjectBase {
   detailType: "case-study";
   linkToLive: string;
+  liveCtaLabel?: string;
+  footerEyebrow?: string;
+  footerTitle?: string;
+  sourceNote?: string;
+  metadataDescription?: string;
   introFigure?: Extract<CaseStudyContentBlock, { type: "figure" }>;
   summary: string;
   participation: string;
@@ -68,12 +73,341 @@ export type Project = StandardProject | CaseStudyProject;
 export const projects: Project[] = [
   {
     detailType: "case-study",
+    id: "b2b-autopartes",
+    category: "B2B Commerce Platform • Cliente real",
+    title: "Plataforma B2B H&A",
+    cardStack: ".NET 10 · Angular 21 · PostgreSQL",
+    linkToLive: "https://distribuidorahya.com/",
+    liveCtaLabel: "Visitar sistema",
+    footerEyebrow: "Sistema en producción",
+    footerTitle: "Distribuidora H&A",
+    sourceNote:
+      "Código fuente privado por tratarse de una solución comercial para un cliente real.",
+    metadataDescription:
+      "Plataforma B2B desarrollada para una distribuidora mayorista de autopartes, con cuentas corrientes, crédito, proveedores, inventario, automatización y despliegue continuo.",
+    summary:
+      "Plataforma B2B desarrollada para digitalizar la operación comercial de una distribuidora mayorista de autopartes. Construida sobre nuestra base modular de comercio electrónico, reutiliza capacidades comunes e incorpora cuentas corrientes, crédito, vencimientos, proveedores, equivalencias de productos, reposición de stock y herramientas operativas específicas del negocio.",
+    participation:
+      "Participé junto a mi socio en el relevamiento, la arquitectura, el desarrollo backend y frontend, el modelado financiero, las pruebas, la infraestructura y la puesta en producción. Actualmente continuamos con el mantenimiento evolutivo, correctivo y de seguridad del sistema.",
+    technologies: [
+      ".NET 10",
+      "C#",
+      "Angular 21",
+      "PostgreSQL",
+      "Entity Framework Core",
+      "xUnit",
+      "Docker",
+      "GitHub Actions",
+      "Nginx",
+      "Cloudflare",
+      "Sentry",
+    ],
+    sections: [
+      {
+        id: "contexto-del-cliente",
+        number: 2,
+        title: "El contexto del cliente",
+        blocks: [
+          {
+            type: "paragraph",
+            text: "El proyecto nació para una distribuidora mayorista de autopartes que necesitaba centralizar su catálogo, clientes, condiciones comerciales, inventario y operación administrativa en una única plataforma.",
+          },
+          {
+            type: "paragraph",
+            text: "La solución debía atender dos experiencias diferentes: un catálogo público para presentar la oferta comercial y un entorno autenticado donde cada cliente pudiera operar según sus condiciones, mientras el personal administraba productos, ventas, cuentas y proveedores.",
+          },
+          {
+            type: "paragraph",
+            text: "Los requerimientos se validaron mediante demostraciones frecuentes con el cliente. Esto permitió convertir procesos reales del negocio en reglas de dominio y ajustar el producto antes de cada entrega.",
+          },
+        ],
+      },
+      {
+        id: "de-plataforma-a-solucion-b2b",
+        number: 3,
+        title: "De plataforma reutilizable a solución B2B",
+        blocks: [
+          {
+            type: "paragraph",
+            text: "El sistema se construyó a partir de la arquitectura de ECommerce Modular. En lugar de comenzar nuevamente desde cero, conservamos los dominios comunes, adaptamos los flujos comerciales y desarrollamos las capacidades exclusivas del negocio mayorista.",
+          },
+          {
+            type: "table",
+            columns: ["Decisión", "Capacidades", "Resultado"],
+            rows: [
+              [
+                "Reutilizado",
+                "Identidad, roles, catálogo, inventario, pedidos y procesos en segundo plano",
+                "Una base probada para concentrar el esfuerzo en las reglas diferenciales",
+              ],
+              [
+                "Adaptado",
+                "Clientes, ventas, administración y experiencia frontend",
+                "Flujos alineados con una operación mayorista y sus distintos usuarios",
+              ],
+              [
+                "Incorporado",
+                "Proveedores, cuentas corrientes, crédito, vencimientos, equivalencias e importaciones",
+                "Cobertura de procesos específicos que la plataforma original no necesitaba",
+              ],
+            ],
+          },
+          {
+            type: "paragraph",
+            text: "El proyecto validó la modularidad con evidencia concreta: permitió reutilizar capacidades técnicas sin imponer al cliente un producto genérico ni mezclar sus reglas particulares con la base común.",
+          },
+        ],
+      },
+      {
+        id: "dominio-financiero-b2b",
+        number: 4,
+        title: "Dominio financiero B2B",
+        blocks: [
+          {
+            type: "paragraph",
+            text: "El núcleo diferencial del sistema es la gestión de cuentas corrientes. Cada operación puede generar movimientos, saldos y cuentas por cobrar con sus propios vencimientos y condiciones de pago.",
+          },
+          {
+            type: "list",
+            items: [
+              "Límites de crédito, saldo utilizado y crédito disponible por cliente.",
+              "Cuentas por cobrar abiertas, vencidas o canceladas y seguimiento de vencimientos.",
+              "Registro de pagos y distribución de importes entre múltiples obligaciones.",
+              "Notas de crédito, ajustes y excepciones de condiciones de pago.",
+              "Historial de movimientos para reconstruir la situación comercial de cada cuenta.",
+              "Reglas financieras implementadas en el dominio y no únicamente en la interfaz.",
+            ],
+          },
+          {
+            type: "paragraph",
+            text: "Este modelado permite que los saldos y estados se deriven de operaciones trazables, evitando depender de valores aislados o cálculos exclusivos del frontend.",
+          },
+        ],
+      },
+      {
+        id: "catalogo-proveedores-inventario",
+        number: 5,
+        title: "Catálogo, proveedores e inventario",
+        blocks: [
+          {
+            type: "paragraph",
+            text: "El catálogo fue extendido para representar la realidad de una distribuidora: productos relacionados con proveedores, referencias equivalentes y disponibilidad que debe mantenerse actualizada para clientes y administradores.",
+          },
+          {
+            type: "list",
+            items: [
+              "Administración de proveedores y sus relaciones con productos y categorías.",
+              "Importación masiva de productos desde archivos XLSX, XLS y CSV.",
+              "Agrupación de equivalencias para ofrecer alternativas compatibles.",
+              "Reposición y control de stock con detección de existencias bajas.",
+              "Ofertas de proveedores y datos de referencia para la toma de decisiones.",
+              "Auditoría de movimientos para conservar la trazabilidad del inventario.",
+            ],
+          },
+        ],
+      },
+      {
+        id: "usuarios-permisos-experiencias",
+        number: 6,
+        title: "Usuarios, permisos y experiencias",
+        blocks: [
+          {
+            type: "paragraph",
+            text: "La aplicación distingue visitantes, clientes comerciales y personal administrativo. Cada perfil encuentra una experiencia diferente y solamente puede acceder a las operaciones correspondientes a su responsabilidad.",
+          },
+          {
+            type: "paragraph",
+            text: "El catálogo público permite explorar la oferta, mientras el entorno autenticado incorpora pedidos, cuenta, condiciones y seguimiento comercial. El panel administrativo concentra clientes, ventas, inventario, proveedores, finanzas, auditoría e indicadores de la operación.",
+          },
+          {
+            type: "paragraph",
+            text: "La autorización se aplica en el backend mediante roles y permisos; ocultar opciones en la interfaz es una mejora de experiencia, no el mecanismo principal de seguridad.",
+          },
+        ],
+      },
+      {
+        id: "arquitectura-modular-aplicada",
+        number: 7,
+        title: "Arquitectura modular aplicada",
+        blocks: [
+          {
+            type: "paragraph",
+            text: "El backend conserva una organización por dominios funcionales: Identity, Customer, Catalog, Shopping, Sales, Finance, Suppliers, Invoicing y Staff. Cada módulo reúne su modelo, reglas y operaciones, utilizando componentes compartidos solamente cuando existe una responsabilidad transversal real.",
+          },
+          {
+            type: "paragraph",
+            text: "Esta separación fue especialmente importante en Finance y Suppliers, incorporados para H&A sin obligar a reestructurar la identidad, el catálogo o las ventas. El resultado mantiene una única unidad de despliegue con límites internos explícitos.",
+          },
+          {
+            type: "paragraph",
+            text: "La arquitectura técnica de la plataforma base se desarrolla con mayor profundidad en el caso de estudio ECommerce Modular; este proyecto muestra su aplicación frente a necesidades comerciales reales.",
+          },
+        ],
+      },
+      {
+        id: "procesamiento-en-segundo-plano",
+        number: 8,
+        title: "Procesamiento en segundo plano",
+        blocks: [
+          {
+            type: "paragraph",
+            text: "Las tareas que no deben depender de una solicitud interactiva se ejecutan mediante procesos en segundo plano. Entre ellas se encuentran el control de vencimientos financieros, la detección de stock bajo, determinadas notificaciones y el procesamiento de contenido multimedia.",
+          },
+          {
+            type: "paragraph",
+            text: "Esto permite responder al usuario sin bloquear la operación, aislar tareas costosas y aplicar reintentos o controles específicos cuando una integración externa no está disponible.",
+          },
+        ],
+      },
+      {
+        id: "calidad-y-validacion",
+        number: 9,
+        title: "Calidad y validación automatizada",
+        blocks: [
+          {
+            type: "paragraph",
+            text: "A diferencia de la primera versión de la plataforma base, los pipelines de H&A incorporan validaciones de calidad antes del despliegue. La API ejecuta suites de pruebas de los principales módulos, compila los servicios y audita dependencias vulnerables.",
+          },
+          {
+            type: "paragraph",
+            text: "El frontend ejecuta lint, pruebas y una compilación de producción. Solamente después de superar estas etapas se construyen las imágenes versionadas que pueden avanzar hacia el entorno productivo.",
+          },
+          {
+            type: "list",
+            items: [
+              "Pruebas automatizadas para Catalog, Customer, Finance, Sales, Staff y Suppliers.",
+              "Compilación independiente de la API y del worker de contenido multimedia.",
+              "Lint, pruebas y build de producción para la aplicación Angular.",
+              "Auditoría de dependencias como control previo a la publicación.",
+            ],
+          },
+        ],
+      },
+      {
+        id: "infraestructura-y-despliegue",
+        number: 10,
+        title: "Infraestructura y despliegue",
+        blocks: [
+          {
+            type: "paragraph",
+            text: "La solución se ejecuta mediante servicios contenerizados para PostgreSQL, migraciones, API, worker, aplicación web con renderizado del lado del servidor y proxy inverso. Los servicios internos se comunican mediante redes privadas y no se exponen directamente a Internet.",
+          },
+          {
+            type: "paragraph",
+            text: "La base de datos utiliza responsabilidades separadas para la aplicación y las migraciones. Los cambios de esquema se aplican mediante un proceso efímero y controlado antes de actualizar los servicios que dependen de ellos.",
+          },
+          {
+            type: "paragraph",
+            text: "Nginx centraliza el ingreso de tráfico y el acceso externo se canaliza mediante Cloudflare. El contenido multimedia y las copias de seguridad utilizan almacenamiento externo, evitando depender exclusivamente del disco del servidor.",
+          },
+        ],
+      },
+      {
+        id: "cicd-trazabilidad-recuperacion",
+        number: 11,
+        title: "CI/CD, trazabilidad y recuperación",
+        blocks: [
+          {
+            type: "paragraph",
+            text: "La API, el frontend y la infraestructura cuentan con flujos de validación y despliegue independientes. Cada imagen queda asociada al commit que la generó, permitiendo identificar con precisión qué versión está ejecutándose.",
+          },
+          {
+            type: "paragraph",
+            text: "Antes de una actualización se realizan controles y respaldos, se ejecutan las migraciones necesarias y se verifican los servicios mediante health checks. El versionado de imágenes permite recuperar una versión conocida sin recompilar el sistema dentro del servidor.",
+          },
+          {
+            type: "paragraph",
+            text: "Este proceso reduce tareas manuales, limita el consumo de recursos del VPS y hace que las publicaciones sean repetibles y auditables.",
+          },
+        ],
+      },
+      {
+        id: "seguridad-y-operacion",
+        number: 12,
+        title: "Seguridad y operación",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Autenticación y autorización por roles y permisos en las operaciones protegidas.",
+              "Servicios internos sin publicación directa de puertos y base de datos aislada.",
+              "Secretos y configuración sensible proporcionados fuera del código y de las imágenes.",
+              "Contenedores con privilegios limitados, límites de recursos y controles de salud.",
+              "Auditorías periódicas de dependencias y seguimiento de errores mediante Sentry.",
+              "Copias de seguridad, verificación de disponibilidad y tareas operativas programadas.",
+            ],
+          },
+          {
+            type: "paragraph",
+            text: "La información pública se mantiene deliberadamente conceptual: este caso demuestra las decisiones adoptadas sin revelar direcciones, puertos, rutas, credenciales ni configuraciones operativas del cliente.",
+          },
+        ],
+      },
+      {
+        id: "mantenimiento-continuo",
+        number: 13,
+        title: "Mantenimiento continuo",
+        blocks: [
+          {
+            type: "paragraph",
+            text: "La puesta en producción no marcó el final del proyecto. Continuamos acompañando el sistema mediante corrección de errores, actualización de dependencias, revisión de vulnerabilidades, monitoreo de incidentes y evolución de funcionalidades según las necesidades del cliente.",
+          },
+          {
+            type: "paragraph",
+            text: "Esta etapa transforma el proyecto en una responsabilidad operativa sostenida: no solamente desarrollamos funcionalidades, también preservamos la estabilidad, seguridad y capacidad de evolución del producto publicado.",
+          },
+        ],
+      },
+      {
+        id: "resultado",
+        number: 14,
+        title: "Resultado",
+        blocks: [
+          {
+            type: "paragraph",
+            text: "El resultado es una plataforma B2B funcional y disponible en producción, que reúne la experiencia pública, el espacio de clientes y la administración interna en una solución adaptada a una distribuidora real.",
+          },
+          {
+            type: "paragraph",
+            text: "El proyecto comprobó que la base modular podía reducir trabajo repetido sin limitar la personalización. También convirtió una decisión arquitectónica en un resultado comercial: reutilizar lo común y concentrar el desarrollo en las reglas que diferencian al negocio.",
+          },
+        ],
+      },
+      {
+        id: "aprendizajes",
+        number: 15,
+        title: "Aprendizajes",
+        blocks: [
+          {
+            type: "paragraph",
+            text: "El mayor aprendizaje fue traducir conceptos comerciales —crédito, deuda, vencimientos, pagos y ajustes— a un modelo consistente, trazable y comprensible tanto para el equipo técnico como para el cliente.",
+          },
+          {
+            type: "paragraph",
+            text: "También profundicé en la diferencia entre construir una demostración y operar un producto real: pruebas como condición de despliegue, migraciones compatibles, observabilidad, respaldos, recuperación y mantenimiento pasan a ser parte del diseño, no tareas posteriores.",
+          },
+          {
+            type: "paragraph",
+            text: "La experiencia reforzó mi interés por backend con .NET, arquitectura de software, DevOps y seguridad de aplicaciones, trabajando sobre problemas de negocio concretos y con responsabilidad más allá de la entrega inicial.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    detailType: "case-study",
     id: "ecommerce-modular",
     category: "E-commerce Platform • Full Stack & DevOps",
     title: "ECommerce Modular",
     image: "/portada-ecommerce.webp",
     cardStack: ".NET 10 · Angular · PostgreSQL",
     linkToLive: "https://core-gamer.com/",
+    liveCtaLabel: "Ver demo en vivo",
+    footerEyebrow: "Demo comercial",
+    footerTitle: "Core Gamer",
+    sourceNote: "Código fuente privado por tratarse de una solución comercial.",
+    metadataDescription:
+      "Plataforma e-commerce modular desarrollada con .NET 10, Angular y PostgreSQL, con arquitectura modular, Docker, CI/CD y despliegue automatizado.",
     summary:
       "Plataforma modular de comercio electrónico desarrollada con .NET 10, Angular y PostgreSQL. Es una base tecnológica diseñada para construir soluciones de comercio electrónico personalizadas sin comenzar cada proyecto desde cero. El sistema combina una arquitectura modular, procesamiento en segundo plano, integraciones externas y un flujo automatizado de despliegue mediante contenedores.",
     participation:

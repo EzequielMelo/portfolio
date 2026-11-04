@@ -486,11 +486,12 @@ function CaseStudyProjectDetail({ project }: CaseStudyProjectDetailProps) {
                 rel="noreferrer"
                 className="inline-flex w-fit items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-black transition-transform hover:scale-[1.03]"
               >
-                Ver demo en vivo
+                {project.liveCtaLabel ?? "Ver proyecto en vivo"}
               </a>
             )}
             <p className="text-sm text-[#666]">
-              Código fuente privado por tratarse de una solución comercial.
+              {project.sourceNote ??
+                "Código fuente privado por tratarse de una solución comercial."}
             </p>
           </div>
 
@@ -561,9 +562,11 @@ function CaseStudyProjectDetail({ project }: CaseStudyProjectDetailProps) {
 
             <div className="mt-10 flex flex-col items-start justify-between gap-6 rounded-2xl border border-white/10 bg-white/[0.035] p-6 sm:flex-row sm:items-center md:p-8">
               <div>
-                <p className="text-sm text-[#666]">Demo comercial</p>
+                <p className="text-sm text-[#666]">
+                  {project.footerEyebrow ?? "Proyecto publicado"}
+                </p>
                 <p className="mt-1 text-xl font-semibold text-white">
-                  Core Gamer
+                  {project.footerTitle ?? project.title}
                 </p>
               </div>
               <a
@@ -572,7 +575,7 @@ function CaseStudyProjectDetail({ project }: CaseStudyProjectDetailProps) {
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-black transition-transform hover:scale-[1.03]"
               >
-                Visitar proyecto
+                {project.liveCtaLabel ?? "Visitar proyecto"}
               </a>
             </div>
           </article>

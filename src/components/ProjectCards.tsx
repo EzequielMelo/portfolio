@@ -81,13 +81,13 @@ function ProjectCards({
               />
               <div className="relative flex items-center justify-between gap-4">
                 <span className="font-mono text-[0.65rem] uppercase tracking-[0.24em] text-[#777] sm:text-xs">
-                  Modular commerce core
+                  {category.split("•")[0].trim()}
                 </span>
                 <span className="h-2.5 w-2.5 rounded-full bg-white shadow-[0_0_18px_rgba(255,255,255,.8)]" />
               </div>
               <div className="relative">
                 <span className="mb-4 block font-mono text-xs text-[#666]">
-                  01 — CASE STUDY
+                  CASE STUDY
                 </span>
                 <span className="block max-w-xl text-5xl font-bold leading-[0.92] text-white sm:text-6xl lg:text-7xl">
                   {title.split(" ").map((word, index) => (
