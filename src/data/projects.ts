@@ -28,6 +28,8 @@ export interface ProjectBase {
   category: string;
   title: string;
   image?: string;
+  imageMobile?: string;
+  imageDesktop?: string;
   video?: string;
   cardStack?: string;
   linkToGithub?: string;
@@ -76,6 +78,9 @@ export const projects: Project[] = [
     id: "b2b-autopartes",
     category: "B2B Commerce Platform • Cliente real",
     title: "Plataforma B2B H&A",
+    image: "/imagen-HYA.png",
+    imageMobile: "/imagen-HYA-mobile.png",
+    imageDesktop: "/imagen-HYA.png",
     cardStack: ".NET 10 · Angular 21 · PostgreSQL",
     linkToLive: "https://distribuidorahya.com/",
     liveCtaLabel: "Visitar sistema",
@@ -180,6 +185,17 @@ export const projects: Project[] = [
           },
           {
             type: "paragraph",
+            text: "El siguiente flujo representa de forma simplificada cómo una operación comercial impacta sobre la cuenta corriente del cliente, desde la validación de sus condiciones hasta la aplicación de pagos y actualización del crédito disponible.",
+          },
+          {
+            type: "figure",
+            src: "/H&A B2B — Diagramas para Portfolio - ciclo comercial.svg",
+            alt: "Diagrama del ciclo comercial y financiero de una operación B2B, desde la validación del cliente hasta la aplicación del pago y la actualización del crédito disponible",
+            caption:
+              "Flujo conceptual de una operación B2B y su impacto financiero.",
+          },
+          {
+            type: "paragraph",
             text: "Este modelado permite que los saldos y estados se deriven de operaciones trazables, evitando depender de valores aislados o cálculos exclusivos del frontend.",
           },
         ],
@@ -240,6 +256,17 @@ export const projects: Project[] = [
           },
           {
             type: "paragraph",
+            text: "Esta organización permite separar identidad, operación comercial, abastecimiento y finanzas sin convertir cada dominio en un servicio distribuido independiente.",
+          },
+          {
+            type: "figure",
+            src: "/H&A B2B — Diagramas para Portfolio - arquitectura funcional.svg",
+            alt: "Diagrama de la arquitectura funcional de la plataforma B2B con sus dominios de identidad, operación comercial, abastecimiento y finanzas",
+            caption:
+              "Organización conceptual de los principales dominios del sistema B2B.",
+          },
+          {
+            type: "paragraph",
             text: "La arquitectura técnica de la plataforma base se desarrolla con mayor profundidad en el caso de estudio ECommerce Modular; este proyecto muestra su aplicación frente a necesidades comerciales reales.",
           },
         ],
@@ -294,6 +321,17 @@ export const projects: Project[] = [
           },
           {
             type: "paragraph",
+            text: "En producción, cada responsabilidad se ejecuta como un servicio contenerizado, manteniendo aislados los componentes internos y exponiendo un único punto de entrada controlado.",
+          },
+          {
+            type: "figure",
+            src: "/H&A B2B — Diagramas para Portfolio - arquitectura de ejecucion.svg",
+            alt: "Diagrama de la arquitectura de ejecución en producción con servicios contenerizados, redes privadas, almacenamiento externo y un único punto de entrada",
+            caption:
+              "Arquitectura pública simplificada del entorno de producción.",
+          },
+          {
+            type: "paragraph",
             text: "La base de datos utiliza responsabilidades separadas para la aplicación y las migraciones. Los cambios de esquema se aplican mediante un proceso efímero y controlado antes de actualizar los servicios que dependen de ellos.",
           },
           {
@@ -310,6 +348,17 @@ export const projects: Project[] = [
           {
             type: "paragraph",
             text: "La API, el frontend y la infraestructura cuentan con flujos de validación y despliegue independientes. Cada imagen queda asociada al commit que la generó, permitiendo identificar con precisión qué versión está ejecutándose.",
+          },
+          {
+            type: "paragraph",
+            text: "Cada componente atraviesa validaciones acordes con su responsabilidad antes de generar una versión desplegable. La publicación conserva la relación entre código, imagen y servicio actualizado.",
+          },
+          {
+            type: "figure",
+            src: "/H&A B2B — Diagramas para Portfolio - cicd operacion.svg",
+            alt: "Diagrama del flujo de CI/CD con validación, publicación, despliegue y verificación operativa de los componentes del sistema",
+            caption:
+              "Flujo simplificado de validación, publicación, despliegue y verificación operativa.",
           },
           {
             type: "paragraph",
@@ -400,6 +449,8 @@ export const projects: Project[] = [
     category: "E-commerce Platform • Full Stack & DevOps",
     title: "ECommerce Modular",
     image: "/portada-ecommerce.webp",
+    imageMobile: "/portada-ecommerce-mobile.png",
+    imageDesktop: "/portada-ecommerce.webp",
     cardStack: ".NET 10 · Angular · PostgreSQL",
     linkToLive: "https://core-gamer.com/",
     liveCtaLabel: "Ver demo en vivo",

@@ -40,14 +40,16 @@ function getMetadata(pathname: string): PageMetadata {
     project.detailType === "case-study"
       ? project.metadataDescription ?? project.summary
       : project.description;
+  const metadataImage =
+    project.imageDesktop ?? project.image ?? project.imageMobile;
 
   return {
     title: `${project.title} | Ezequiel Melo`,
     description,
     canonicalUrl: `${SITE_URL}/projects/${project.id}`,
     type: "article",
-    image: absoluteAssetUrl(project.image),
-    imageAlt: project.image ? project.title : undefined,
+    image: absoluteAssetUrl(metadataImage),
+    imageAlt: metadataImage ? project.title : undefined,
   };
 }
 

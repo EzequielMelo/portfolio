@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 interface ProjectProps {
   id: string;
   image?: string;
+  imageMobile?: string;
+  imageDesktop?: string;
   video?: string;
   title: string;
   category: string;
@@ -14,6 +16,8 @@ interface ProjectProps {
 function ProjectCards({
   id,
   image,
+  imageMobile,
+  imageDesktop,
   video,
   title,
   category,
@@ -22,6 +26,7 @@ function ProjectCards({
   const [isHovered, setIsHovered] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const hasVideo = Boolean(video);
+  const fallbackImage = image ?? imageDesktop ?? imageMobile;
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -47,17 +52,25 @@ function ProjectCards({
         onMouseLeave={handleMouseLeave}
       >
         <motion.div className="relative mb-4 flex h-[25rem] w-full items-center justify-center overflow-hidden rounded-2xl border border-transparent md:h-[30rem]">
-          {image ? (
-            <motion.img
-              src={image}
-              alt={title}
-              className="h-full w-full object-cover transition-all duration-300"
-              initial={{ filter: "blur(0px)" }}
-              animate={{
-                filter: hasVideo && isHovered ? "blur(10px)" : "blur(0px)",
-                scale: !hasVideo && isHovered ? 1.015 : 1,
-              }}
-            />
+          {fallbackImage ? (
+            <picture className="block h-full w-full">
+              {imageMobile && (
+                <source media="(max-width: 767px)" srcSet={imageMobile} />
+              )}
+              {imageDesktop && (
+                <source media="(min-width: 768px)" srcSet={imageDesktop} />
+              )}
+              <motion.img
+                src={fallbackImage}
+                alt={title}
+                className="h-full w-full object-cover transition-all duration-300"
+                initial={{ filter: "blur(0px)" }}
+                animate={{
+                  filter: hasVideo && isHovered ? "blur(10px)" : "blur(0px)",
+                  scale: !hasVideo && isHovered ? 1.015 : 1,
+                }}
+              />
+            </picture>
           ) : (
             <motion.div
               aria-label={`Portada temporal de ${title}`}
